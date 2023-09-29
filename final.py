@@ -64,6 +64,10 @@ def crossover(parent1, parent2):
     child2 = parent2[:crossover_point] + parent1[crossover_point:]
     return child1, child2
 
+population_size = 100
+num_generations = 100
+mutation_rate = 0.1
+
 def mutate(solution):
     if random.random() < mutation_rate:
         i, j = random.sample(range(N), 2)
