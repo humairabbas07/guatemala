@@ -1,3 +1,4 @@
+!pip install matplotlib.pyplot as ply
 import random
 import math
 import streamlit as st
