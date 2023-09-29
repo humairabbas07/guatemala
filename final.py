@@ -2,7 +2,7 @@ pip install matplotlib
 import random
 import math
 import streamlit as st
-import matplotlib.pyplot as plt
+import matplotlib
 
 N = 20
 min_weight = 100
