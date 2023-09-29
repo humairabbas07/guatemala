@@ -89,6 +89,10 @@ def genetic_algorithm():
         population = new_population
     return best_solution, evaluate_solution(best_solution)
 
+
+initial_temperature = 100.0
+cooling_rate = 0.995
+
 def simulated_annealing():
     current_solution = [random.randint(0, num_vehicles - 1) for _ in range(N)]
     current_score = evaluate_solution(current_solution)
