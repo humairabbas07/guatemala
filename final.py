@@ -122,7 +122,7 @@ def initialize_problem_data(num_plots):
     return plots
 
 st.title("Sugar Cane Harvesting Problem Solver")
-selected_algorithm = st.selectbox("Select Algorithm", ["Genetic Algorithm", "Simulated Annealing", "Additional Algorithm"])
+selected_algorithm = st.selectbox("Select Algorithm", ["Genetic Algorithm", "Simulated Annealing", "Random Search"])
 num_plots = st.slider("Number of Sugar Cane Plots", min_value=5, max_value=50, value=20, step=5)
 plots = initialize_problem_data(num_plots)
 st.write("Problem Data:")
@@ -139,7 +139,7 @@ if st.button("Run Solver"):
     elif selected_algorithm == "Simulated Annealing":
         result, score = simulated_annealing()
     else:
-        result, score = additional_algorithm()
+        result, score = random_search()
     st.write(f"Algorithm: {selected_algorithm}")
     st.write("Solution:")
     st.write(result, score)
