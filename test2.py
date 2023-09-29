@@ -15,18 +15,18 @@ total_work_capacity = 2000  # Total work capacity (hours)
 weekly_work_hours_per_worker = 40  # Weekly work hours per worker
 
 # Generate random plots
-plots = []
+plots1 = []
 for _ in range(N):
     weight = random.randint(min_weight, max_weight)
     time_required = round(random.uniform(min_time_required, max_time_required), 2)
-    plots.append((weight, time_required))
+    plots1.append((weight, time_required))
 
 # Initialize transport vehicles
 num_vehicles = 5
 vehicle_capacity = random.randint(min_vehicle_capacity, max_vehicle_capacity)
 
 # Calculate the initial number of workers
-total_required_work = sum(weight / time_required for weight, time_required in plots)
+total_required_work = sum(weight / time_required for weight, time_required in plots1)
 num_workers = math.ceil(total_required_work / weekly_work_hours_per_worker)
 
 # Genetic Algorithm
@@ -60,9 +60,9 @@ def random_search():
 def evaluate_solution(solution):
     # Evaluate a solution by calculating the total time/resources required
     total_time_required = [0] * num_vehicles
-    for i, (weight, time_required) in enumerate(plots):
-    # for i, a in enumerate(plots):
-        # weight, time_required = a['Value (kg)'], a['Weight (hours)']
+    for i, (weight, time_required) in enumerate(plots1):
+#     for i, a in enumerate(plots):
+#         weight, time_required = a['Value (kg)'], a['Weight (hours)']
         vehicle_index = solution[i]
         total_time_required[vehicle_index] += weight / time_required
     
@@ -223,7 +223,7 @@ vehicle_capacity = st.slider("Vehicle Capacity (kg)", min_value=1000, max_value=
 if st.button("Run Solver"):
     st.write("Running the selected algorithm...")
     
-    # Prepare problem data
+    # Prepare problem dataf
     values = [plot["Value (kg)"] for plot in plots]
     weights = [plot["Weight (hours)"] for plot in plots]
     
