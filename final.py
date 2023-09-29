@@ -1,4 +1,3 @@
-pip install matplotlib
 import random
 import math
 import streamlit as st
