@@ -1,6 +1,7 @@
 import random
 import math
 import streamlit as st
+import matplotlib.pyplot as plt
 
 N = 20
 min_weight = 100
@@ -127,6 +128,7 @@ num_plots = st.slider("Number of Sugar Cane Plots", min_value=5, max_value=50, v
 plots = initialize_problem_data(num_plots)
 st.write("Problem Data:")
 st.write(plots)
+
 worker_capacity = st.slider("Worker Capacity (hours)", min_value=10, max_value=100, value=40, step=10)
 vehicle_capacity = st.slider("Vehicle Capacity (kg)", min_value=1000, max_value=2500, value=1500, step=100)
 
@@ -144,4 +146,11 @@ if st.button("Run Solver"):
     st.write("Solution:")
     st.write(result, score)
 
+plt.figure(figsize=(10, 6))
+plt.hist(values, weights, bins=range(100, 1201, 50), alpha=0.7, edgecolor='black', color='skyblue')
+plt.xlabel('Sugar Cane Weight (kg)')
+plt.ylabel('Frequency')
+plt.title('Distribution of Sugar Cane Weights')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+st.pyplot(plt)
 st.header("Results")
