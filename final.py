@@ -1,7 +1,6 @@
 import random
 import math
 import streamlit as st
-import matplotlib
 
 N = 20
 min_weight = 100
@@ -145,13 +144,5 @@ if st.button("Run Solver"):
     st.write(f"Algorithm: {selected_algorithm}")
     st.write("Solution:")
     st.write(result, score)
-
-    plt.figure(figsize=(10, 6))
-    plt.hist(result, score, bins=range(100, 1201, 50), alpha=0.7, edgecolor='black', color='skyblue')
-    plt.xlabel('Sugar Cane Weight (kg)')
-    plt.ylabel('Frequency')
-    plt.title('Distribution of Sugar Cane Weights')
-    plt.grid(axis='y', linestyle='--', alpha=0.7)
-    st.pyplot(plt)
     
 st.header("Results")
