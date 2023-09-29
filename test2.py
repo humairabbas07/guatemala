@@ -60,7 +60,9 @@ def random_search():
 def evaluate_solution(solution):
     # Evaluate a solution by calculating the total time/resources required
     total_time_required = [0] * num_vehicles
-    for i, (weight, time_required) in enumerate(plots):
+#     for i, (weight, time_required) in enumerate(plots):
+    for i, a in enumerate(plots):
+        weight, time_required = a['Value (kg)'], a['Weight (hours)']
         vehicle_index = solution[i]
         total_time_required[vehicle_index] += weight / time_required
     
