@@ -29,6 +29,15 @@ population_size = 100
 num_generations = 100
 mutation_rate = 0.1
 
+def evaluate_solution(solution):
+    total_time_required = [0] * num_vehicles
+    for i, (weight, time_required) in enumerate(plots):
+        vehicle_index = solution[i]
+        total_time_required[vehicle_index] += weight / time_required
+
+    max_time = max(total_time_required)
+    return -max_time  # Negative because we want to minimize the maximum time
+
 def initialize_population():
     return [[random.randint(0, num_vehicles - 1) for _ in range(N)] for _ in range(population_size)]
 
