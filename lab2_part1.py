@@ -46,6 +46,3 @@ st.write(f"Average Performance after {years_to_college} years: ${average_perform
 st.write(f"Average Accumulated Savings: ${average_accumulated:.2f}")
 st.write(f"Pessimistic Scenario: ${pessimistic_scenario:.2f}")
 st.write(f"Optimistic Scenario: ${optimistic_scenario:.2f}")
-
-# Plotting
-st.header("Plots")
