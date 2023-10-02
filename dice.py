@@ -54,7 +54,7 @@ def main():
     
     st.sidebar.header("Simulation Settings")
     num_players = st.sidebar.slider("Number of Players", 1, 10, 5)
-    num_games = st.sidebar.slider("Number of Games", 1, 1000, 100)
+    num_games = st.sidebar.slider("Number of Games", 1, 100000, 100)
     
     results, winners = simulate_game(num_players, num_games)
 
