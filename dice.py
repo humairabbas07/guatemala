@@ -1,6 +1,7 @@
 import random
 import pandas as pd
 import streamlit as st
+# import matplotlib.pyplot as plt
 
 def play_game():
     # Initialize game parameters
@@ -16,8 +17,19 @@ def play_game():
         elif action == "Pon2":
             wallet -= 2
             livestock += 2
-        # Implement other actions
-
+        elif action == "Take1":
+            wallet += 1
+            livestock -= 1
+        elif action == "Take2":
+            wallet += 2
+            livestock -= 2
+        elif action == "Takes all":
+            lost += wallet
+            wallet = 0
+        elif action == "Everyone puts":
+            wallet += 1
+            lost += 1
+            
         lost += 10  # Assuming a constant loss per game
 
     return lost
@@ -43,7 +55,7 @@ def main():
     st.sidebar.header("Simulation Settings")
     num_players = st.sidebar.slider("Number of Players", 1, 10, 5)
     num_games = st.sidebar.slider("Number of Games", 1, 1000, 100)
-
+    
     results, winners = simulate_game(num_players, num_games)
 
     st.write("Simulation Results:")
@@ -56,16 +68,14 @@ def main():
     st.write("Per-Player Profit/Loss:")
     st.write(df)
 
-    # Plot profit/loss for each player
-    
-#     import matplotlib.pyplot as plt
-#     for i in range(num_players):
-#         plt.plot(df[f"Player {i+1}"], label=f"Player {i+1}")
+    # # Plot profit/loss for each player
+    # for i in range(num_players):
+    #     plt.plot(df[f"Player {i+1}"], label=f"Player {i+1}")
 
-#     plt.xlabel("Game")
-#     plt.ylabel("Profit/Loss")
-#     plt.legend()
-#     st.pyplot(plt)
+    # plt.xlabel("Game")
+    # plt.ylabel("Profit/Loss")
+    # plt.legend()
+    # st.pyplot(plt)
 
 if __name__ == "__main__":
     main()
