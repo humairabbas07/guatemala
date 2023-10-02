@@ -30,7 +30,7 @@ def play_game():
             wallet += 1
             lost += 1
             
-        # lost += 40  # Assuming a constant loss per game
+        lost -= 100  # Assuming a constant loss per game
 
     return lost
 
