@@ -6,7 +6,7 @@ import streamlit as st
 def play_game():
     # Initialize game parameters
     wallet = 100
-    livestock = 50
+    livestock = 10
     lost = 0
 
     while wallet > 0:
