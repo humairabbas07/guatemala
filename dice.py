@@ -30,7 +30,7 @@ def play_game():
             wallet += 1
             lost += 1
             
-        lost -= 100  # Assuming a constant loss per game
+        lost -= 10  # Assuming a constant loss per game
 
     return lost
 
@@ -54,7 +54,7 @@ def main():
     
     st.sidebar.header("Simulation Settings")
     num_players = st.sidebar.slider("Number of Players", 1, 10, 5)
-    num_games = st.sidebar.slider("Number of Games", 1, 100000, 100)
+    num_games = st.sidebar.slider("Number of Games", 1, 10000, 100)
     
     results, winners = simulate_game(num_players, num_games)
 
