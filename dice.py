@@ -30,7 +30,7 @@ def play_game():
             wallet += 1
             lost += 1
             
-        lost -= 10  # Assuming a constant loss per game
+        lost += 10  # Assuming a constant loss per game
 
     return lost
 
@@ -43,7 +43,7 @@ def simulate_game(players, num_games):
         for _ in range(players):
             lost = play_game()
             player_results.append(lost)
-            if lost == 0:
+            if lost == 110:
                 winners += 1
         results.append(player_results)
 
@@ -53,8 +53,8 @@ def main():
     st.title("Perinola Simulation")
     
     st.sidebar.header("Simulation Settings")
-    num_players = st.sidebar.slider("Number of Players", 1, 10, 5)
-    num_games = st.sidebar.slider("Number of Games", 1, 10000, 100)
+    num_players = st.sidebar.slider("Number of Players", 1, 10, 3)
+    num_games = st.sidebar.slider("Number of Games", 1, 10000, 1000)
     
     results, winners = simulate_game(num_players, num_games)
 
